@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QPixmap>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ImageViewer; }
@@ -16,6 +17,7 @@ class ImageViewer : public QMainWindow
 public:
     ImageViewer(QWidget *parent = nullptr);
     ~ImageViewer();
+
     void resizeEvent(QResizeEvent *event) override;
 
 private slots:
@@ -27,7 +29,9 @@ private slots:
 
 private:
     Ui::ImageViewer *ui;
+
     QString m_imagePath;
+
     QPixmap m_image;
 };
 #endif // IMAGEVIEWER_H

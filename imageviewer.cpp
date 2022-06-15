@@ -29,8 +29,26 @@ void ImageViewer::on_pathButton_clicked()
 
 void ImageViewer::on_imageButton_clicked()
 {
-    m_image.load(m_imagePath);
-    ui->imageField->setPixmap(m_image.scaled(ui->scrollArea->width(),ui->scrollArea->height(),Qt::KeepAspectRatio));
+
+    if (m_imagePath.isNull()) {
+        QMessageBox msgBox;
+
+        msgBox.setText("Cant open the image\n"
+                       "Please choose correct path");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.setDefaultButton(QMessageBox::Ok);
+
+        int ret = msgBox.exec();
+
+        if (ret == QMessageBox::Ok) {
+            msgBox.close();
+        }
+    }
+
+    else {
+        m_image.load(m_imagePath);
+        ui->imageField->setPixmap(m_image.scaled(ui->scrollArea->width(),ui->scrollArea->height(),Qt::KeepAspectRatio));
+    }
 }
 
 
