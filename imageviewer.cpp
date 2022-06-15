@@ -23,7 +23,7 @@ void ImageViewer::resizeEvent(QResizeEvent *event)
 void ImageViewer::on_pathButton_clicked()
 {
     m_imagePath = QFileDialog::getOpenFileName(this, "Choose path to your image", "../ImageViewer",
-                                             "All Files (*.*);; PNG Image (*.png);; JPEG Image (*.jpg);");
+                                             "JPEG Image (*.jpg);; PNG Image (*.png);");
 }
 
 
