@@ -24,6 +24,7 @@ void ImageViewer::on_pathButton_clicked()
 {
     m_imagePath = QFileDialog::getOpenFileName(this, "Choose path to your image", "../ImageViewer",
                                              "JPEG Image (*.jpg);; PNG Image (*.png);");
+    ui->pathField->setText(m_imagePath);
 }
 
 
